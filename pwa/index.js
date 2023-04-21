@@ -1,5 +1,6 @@
 let prenom = document.getElementById("name");
 let message = document.getElementById("message");
+let form = document.getElementById("input-area");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
