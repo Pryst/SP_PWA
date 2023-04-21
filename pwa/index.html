@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,14 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <h1>Bienvenue sur le chat LPDWCA</h1>
     </header>
     <main>
         <div id="chat-container">
-<!-- à faire en js -->
+            <!-- à faire en js -->
             <div id="chat-area">
                 <div class="message">
                     <div class="username">jhsd</div>
@@ -45,7 +47,8 @@
                     <div class="username">fdgdfgdg</div>
                     <div class="msg">azertuoisgsd;l,</div>
                     <div class="timestamp">le 16/04/2023 à 15h30</div>
-                </div>                <div class="message">
+                </div>
+                <div class="message">
                     <div class="username">jhsd</div>
                     <div class="msg">mljhddqfer</div>
                     <div class="timestamp">le 16/04/2023 à 15h00</div>
@@ -88,5 +91,23 @@
             <a href="#">Lien</a> | &copy; 2023 - Tous droits réservés
         </small>
     </footer>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+        if (window.caches) {
+            caches.open('SP_PWA').then(
+                cache => {
+                    cache.addAll([
+                        'index.html',
+                        'sw.js'
+                    ])
+                }
+            )
+        }
+    </script>
+    <script src="index.js"></script>
+    <script src="sw.js"></script>
 </body>
+
 </html>
