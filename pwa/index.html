@@ -17,69 +17,9 @@
     </header>
     <main>
         <div id="chat-container">
-            <!-- à faire en js -->
             <div id="chat-area">
-                <div class="message">
-                    <div class="username">jhsd</div>
-                    <div class="msg">mljhddqfer</div>
-                    <div class="timestamp">le 16/04/2023 à 15h00</div>
-                </div>
-                <div class="message">
-                    <div class="username">fdgdfgdg</div>
-                    <div class="msg">azertuoisgsd;l,</div>
-                    <div class="timestamp">le 16/04/2023 à 15h30</div>
-                </div>
-                <div class="message">
-                    <div class="username">jhsd</div>
-                    <div class="msg">mljhddqfer</div>
-                    <div class="timestamp">le 16/04/2023 à 15h00</div>
-                </div>
-                <div class="message">
-                    <div class="username">fdgdfgdg</div>
-                    <div class="msg">azertuoisgsd;l,</div>
-                    <div class="timestamp">le 16/04/2023 à 15h30</div>
-                </div>
-                <div class="message">
-                    <div class="username">jhsd</div>
-                    <div class="msg">mljhddqfer</div>
-                    <div class="timestamp">le 16/04/2023 à 15h00</div>
-                </div>
-                <div class="message">
-                    <div class="username">fdgdfgdg</div>
-                    <div class="msg">azertuoisgsd;l,</div>
-                    <div class="timestamp">le 16/04/2023 à 15h30</div>
-                </div>
-                <div class="message">
-                    <div class="username">jhsd</div>
-                    <div class="msg">mljhddqfer</div>
-                    <div class="timestamp">le 16/04/2023 à 15h00</div>
-                </div>
-                <div class="message">
-                    <div class="username">fdgdfgdg</div>
-                    <div class="msg">azertuoisgsd;l,</div>
-                    <div class="timestamp">le 16/04/2023 à 15h30</div>
-                </div>
-                <div class="message">
-                    <div class="username">jhsd</div>
-                    <div class="msg">mljhddqfer</div>
-                    <div class="timestamp">le 16/04/2023 à 15h00</div>
-                </div>
-                <div class="message">
-                    <div class="username">fdgdfgdg</div>
-                    <div class="msg">azertuoisgsd;l,</div>
-                    <div class="timestamp">le 16/04/2023 à 15h30</div>
-                </div>
-                <div class="message">
-                    <div class="username">jhsd</div>
-                    <div class="msg">mljhddqfer</div>
-                    <div class="timestamp">le 16/04/2023 à 15h00</div>
-                </div>
-                <div class="message">
-                    <div class="username">fdgdfgdg</div>
-                    <div class="msg">azertuoisgsd;l,</div>
-                    <div class="timestamp">le 16/04/2023 à 15h30</div>
-                </div>
             </div>
+
             <form id="input-area">
                 <input type="text" id="name" placeholder="Votre nom...">
                 <input type="text" id="message" placeholder="Tapez votre message ici...">
@@ -92,6 +32,7 @@
             <a href="#">Lien</a> | &copy; 2023 - Tous droits réservés
         </small>
     </footer>
+
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
@@ -106,9 +47,19 @@
                 }
             )
         }
+
+        if (window.Notification && window.Notification != "denied") {   //########### notifications ####################""
+            Notification.requestPermission(permis => {
+                if (permis == "granted") {
+                    const notif = new Notification("nouveau message");
+                }
+            })
+        }
     </script>
     <script src="index.js"></script>
     <script src="sw.js"></script>
+
+
 </body>
 
 </html>

@@ -1,6 +1,6 @@
-self.addEventListener('install',event =>{
+self.addEventListener('install', event => {
     caches.open('Messagerie').then(
-        cache=>{
+        cache => {
             cache.addAll([
                 'index.html',
                 'sw.js'
@@ -8,24 +8,27 @@ self.addEventListener('install',event =>{
         }
     )
 })
-self.addEventListener('activate',event =>{
-    console.log(event);
+self.addEventListener('activate', event => {
+    //console.log(event);
 })
-self.addEventListener('fetch', event =>{
-    if(!(event.request.url.indexOf('http')===0)) return;
+
+
+
+self.addEventListener('fetch', event => {
+    if (!(event.request.url.indexOf('http') === 0)) return;
     event.respondWith(
-        caches.match(event.request).then(rep =>{
-            if(rep){
-            return rep;
+        caches.match(event.request).then(rep => {
+            if (rep) {
+                return rep;
             }
             return fetch(event.request).then(
-            newResponse =>{
-                caches.open('SP_PWA').then(
-                    cache=>cache.put(event.request, newResponse)
-                );
-                return newResponse.clone;
-            }
-            ) 
+                newResponse => {
+                    caches.open('Messagerie').then(
+                        cache => cache.put(event.request, newResponse)
+                    );
+                    return newResponse.clone();
+                }
+            )
         })
     )
 })
